@@ -1,6 +1,7 @@
 import React from 'react';
 import { Moon, Sun, Bug } from 'lucide-react';
 import useVideoStore from '../store/videoStore';
+import logotipo from '../assets/logotipo.png';
 
 const Header: React.FC = () => {
   const { isDarkMode, toggleDarkMode } = useVideoStore();
@@ -11,7 +12,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img 
-              src="/logotipo.png" 
+              src={logotipo}
               alt="YouTube Timestamp Editor Logo" 
               className="h-20 brightness-[0.85] contrast-[1.2] dark:brightness-100 dark:contrast-100" 
             />
