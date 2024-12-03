@@ -4,6 +4,12 @@
   functions = "netlify/functions"
 
 [[redirects]]
+  from = "/_next/image*"
+  to = "https://ytimestamp-editor.netlify.app/_next/image:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/watch"
   to = "/.netlify/functions/og"
   status = 200
@@ -14,3 +20,12 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[plugins]]
+  package = "netlify-plugin-image-optim"
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+
+[[plugins]]
+  package = "netlify-plugin-cloudinary"

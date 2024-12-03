@@ -13,7 +13,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Image 
-              src="https://i.ibb.co/rF1KbZW/logotipo.png"
+              src={logotipo}
               alt="YouTube Timestamp Editor Logo" 
               className="h-20 brightness-[0.85] contrast-[1.2] dark:brightness-100 dark:contrast-100"
               width={200}
