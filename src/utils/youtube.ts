@@ -1,4 +1,4 @@
-import { VideoMetadata, VideoStats } from '../types/youtube';
+import { VideoMetadata, VideoStats, Timestamp } from '../types/youtube';
 
 export const loadYouTubeAPI = (): Promise<void> => {
   return new Promise((resolve) => {
