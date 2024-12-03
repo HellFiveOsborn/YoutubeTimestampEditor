@@ -2,7 +2,7 @@
 
 A powerful web application that allows users to create, manage, and share timestamps for YouTube videos. Skip unwanted segments automatically and share your curated viewing experience with others.
 
-![YouTube Timestamp Editor Logo](/logotipo.png)
+![YouTube Timestamp Editor Logo](/src/assets/logotipo.png)
 
 ## Features
 
