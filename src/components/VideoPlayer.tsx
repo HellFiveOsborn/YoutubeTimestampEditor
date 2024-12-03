@@ -155,9 +155,7 @@ const VideoPlayer: React.FC = () => {
   };
 
   const handleAddTimestamp = (start: number, end: number) => {
-    // Generate a more unique ID by combining multiple random values
-    const id = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}-${Math.random().toString(36).substr(2, 9)}`;
-    addTimestamp(start, end, `Segment ${timestamps.length + 1}`, id);
+    addTimestamp(start, end, `Segment ${timestamps.length + 1}`);
   };
 
   if (error) {
