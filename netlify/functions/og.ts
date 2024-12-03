@@ -1,17 +1,29 @@
-import { getVideoMetadata } from '../src/utils/youtube';
+import { Handler } from '@netlify/functions';
+import { getVideoMetadata } from '../../src/utils/youtube';
 
-export default async function handler(req: any, res: any) {
-  const { v: videoId, ref } = req.query;
+const handler: Handler = async (event) => {
+  const params = new URLSearchParams(event.rawQuery);
+  const videoId = params.get('v');
+  const ref = params.get('ref');
+
+  if (!videoId) {
+    return {
+      statusCode: 404,
+      body: 'Video ID not found'
+    };
+  }
 
   try {
     const metadata = await getVideoMetadata(videoId);
     
     if (!metadata) {
-      return res.status(404).json({ error: 'Video not found' });
+      return {
+        statusCode: 404,
+        body: 'Video not found'
+      };
     }
 
-    res.setHeader('Content-Type', 'text/html');
-    res.send(`
+    const html = `
       <!DOCTYPE html>
       <html>
         <head>
@@ -33,9 +45,22 @@ export default async function handler(req: any, res: any) {
           Redirecting...
         </body>
       </html>
-    `);
+    `;
+
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'text/html',
+      },
+      body: html,
+    };
   } catch (error) {
     console.error('Error generating OG tags:', error);
-    res.status(500).json({ error: 'Failed to generate OG tags' });
+    return {
+      statusCode: 500,
+      body: 'Failed to generate OG tags'
+    };
   }
-}
+};
+
+export { handler };
