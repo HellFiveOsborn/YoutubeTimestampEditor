@@ -4,8 +4,14 @@
   functions = "netlify/functions"
 
 [[redirects]]
-  from = "/_next/image*"
-  to = "https://ytimestamp-editor.netlify.app/_next/image:splat"
+  from = "/_next/*"
+  to = "/assets/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
   status = 200
   force = true
 
