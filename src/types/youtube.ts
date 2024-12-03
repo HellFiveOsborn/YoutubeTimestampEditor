@@ -1,3 +1,9 @@
+export interface VideoMetadata {
+  title: string;
+  thumbnail: string;
+  stats: VideoStats;
+}
+
 export interface Timestamp {
   id: string;
   start: number;
