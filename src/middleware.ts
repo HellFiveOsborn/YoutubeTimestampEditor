@@ -8,7 +8,13 @@ export async function middleware(req: NextRequest) {
                userAgent.includes('spider') ||
                userAgent.includes('facebook') ||
                userAgent.includes('whatsapp') ||
-               userAgent.includes('telegram');
+               userAgent.includes('telegram') ||
+               userAgent.includes('linkedin') ||
+               userAgent.includes('twitter') ||
+               userAgent.includes('pinterest') ||
+               userAgent.includes('reddit') ||
+               userAgent.includes('tumblr') ||
+               userAgent.includes('vk');
 
   console.log('Middleware - isBot:', isBot, 'UserAgent:', userAgent);
 
@@ -19,7 +25,7 @@ export async function middleware(req: NextRequest) {
   
   // For non-bot requests, redirect to the Vite app
   const url = new URL(req.url);
-  const viteUrl = new URL(`http://localhost:5174${url.pathname}${url.search}`);
+  const viteUrl = new URL(`https://ytimestamp-editor.netlify.app${url.pathname}${url.search}`);
   return NextResponse.redirect(viteUrl);
 }
 
