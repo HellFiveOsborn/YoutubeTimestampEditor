@@ -1,25 +1,26 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["node"],
     "target": "ES2022",
     "lib": ["ES2023"],
-    "module": "ESNext",
     "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": false,
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-
-    /* Project References */
-    "composite": true
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist/config",
+    "rootDir": "."
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "next.config.js", "next.config.cjs"],
+  "exclude": ["node_modules", "dist"]
 }
